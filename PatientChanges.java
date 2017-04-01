@@ -21,7 +21,7 @@ public class PatientChanges {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","dip");
             st = (Statement) con.createStatement();
-            String str = "insert into Patient values("+pat_id+",'"+pat_name+"','"+suff+"',"+room+", '"+addr+"',"+phone+")";
+            String str = "insert into Patient values("+pat_id+",'"+pat_name+"','"+suff+"',"+room+",'"+addr+"',"+phone+")";
             //String str = "insert into Table1 values('"+pat_name+"','"+suff+"')";
             st.executeUpdate(str);
         } catch (Exception ex) {
@@ -38,12 +38,12 @@ public class PatientChanges {
                 }
                 
                 
-                JFrame frame = new JFrame("Add/Dlete Patient Records");
+                JFrame frame = new JFrame("Add/Delete Patient Records");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLayout(new BorderLayout());
                 frame.add(new TestPane());
                 frame.pack();
-                frame.setSize(1000,150);
+                frame.setSize(1000,300);
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             }
@@ -98,12 +98,24 @@ public class PatientChanges {
             t6=new JTextField(10);
             add(t6, gbc);
             gbc.gridx++;
-            
-
-            gbc.gridx = 2;
-            gbc.gridy++;
+           
             JButton b1=new JButton("Add");
             add(b1, gbc);
+            
+            gbc.gridy++;
+            gbc.gridx = 1;
+            add(new JLabel("Enter Patient ID for deleting a record"), gbc);
+            gbc.gridy++;
+            gbc.gridx = 0;
+            add(new JLabel("Enter ID"), gbc);
+            gbc.gridx++;
+            t7=new JTextField(10);
+            add(t7, gbc);
+            gbc.gridx++;
+            JButton b2=new JButton("Delete");
+            add(b2, gbc);
+            
+            
             gbc.fill = GridBagConstraints.NONE;
             gbc.gridwidth = 2;
             
