@@ -27,6 +27,20 @@ public class PatientChanges {
         } catch (Exception ex) {
         }
     }
+    
+    public void connectdel(int pat_id) {
+        
+        try {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","dip");
+            st = (Statement) con.createStatement();
+            String str = "delete from Patient where PatientID=105";
+            //String str = "insert into Table1 values('"+pat_name+"','"+suff+"')";
+            st.executeUpdate(str);
+        } catch (Exception ex) {
+        }
+    }
 
     public PatientChanges() {
         EventQueue.invokeLater(new Runnable() {
@@ -129,6 +143,14 @@ public class PatientChanges {
                     String addr=t5.getText();
                     int phone=Integer.parseInt(t6.getText());
                     connect(pat_id, pat_name, suff, room, addr, phone);
+                }
+        });
+        
+            b2.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e)
+                {
+                    int pat_id=Integer.parseInt(t7.getText());
+                    connectdel(pat_id);
                 }
         });
 
