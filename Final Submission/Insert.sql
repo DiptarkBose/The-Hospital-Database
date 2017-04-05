@@ -1,6 +1,6 @@
-INSERT INTO Department VALUES(1,'General Medicine');
-INSERT INTO Department VALUES(2,'Surgery');
-INSERT INTO Department VALUES(3,'Psychiatry');
+INSERT INTO Hospital_Department VALUES(1,'General Medicine');
+INSERT INTO Hospital_Department VALUES(2,'Surgery');
+INSERT INTO Hospital_Department VALUES(3,'Psychiatry');
 
 INSERT INTO Block VALUES(1,'Sigmun Freud');
 INSERT INTO Block VALUES(2,'Ron Paul');
