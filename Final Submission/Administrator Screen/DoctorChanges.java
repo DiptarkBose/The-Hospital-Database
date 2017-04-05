@@ -52,7 +52,7 @@ public class DoctorChanges {
                 }
                 
                 
-                JFrame frame = new JFrame("Add/Delete Patient Records");
+                JFrame frame = new JFrame("Add/Delete Doctor Records");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLayout(new BorderLayout());
                 frame.add(new TestPane());
