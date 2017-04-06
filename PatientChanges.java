@@ -21,7 +21,7 @@ public class PatientChanges {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","dip");
             st = (Statement) con.createStatement();
-            String str = "insert into Patient values("+pat_id+",'"+pat_name+"','"+suff+"',"+room+",'"+addr+"',"+phone+")";
+            String str = ("insert into Patient values("+pat_id+",'"+pat_name+"','"+suff+"',"+room+",'"+addr+"',"+phone+")");
             //String str = "insert into Table1 values('"+pat_name+"','"+suff+"')";
             st.executeUpdate(str);
         } catch (Exception ex) {
@@ -35,8 +35,8 @@ public class PatientChanges {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","dip");
             st = (Statement) con.createStatement();
-            String str = "delete from Patient where PatientID=105";
-            //String str = "insert into Table1 values('"+pat_name+"','"+suff+"')";
+            //String str = "delete from Patient where PatientID="+pat_id;
+            String str = ("delete from Patient where PatientID="+pat_id);
             st.executeUpdate(str);
         } catch (Exception ex) {
         }
