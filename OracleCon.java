@@ -1,4 +1,4 @@
-import java.sql.*  
+import java.sql.*;
 class OracleCon{  
 public static void main(String args[]){  
 try{  
