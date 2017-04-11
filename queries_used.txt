@@ -1,0 +1,40 @@
+Queries Used:
+
+1. select * from patient
+2. select * from physician
+3. select * from nurse
+4. select * from department
+5. select * from appointment
+6. select * from room
+7. select * from block
+8. SELECT * from Patient where PatientID=?
+9. SELECT * from Physician where EmployeeID=?
+10. SELECT * from Appointment where AppointmentID=?
+11. SELECT * from nurse where employeeid=?
+
+where ? denotes user input
+
+
+Connection snippet:
+
+try {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","dip");
+            st = (Statement) con.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * from Patients");
+            ResultSetMetaData rsmd = resultSet.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+            while (resultSet.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1) answer=answer+("\n  ");
+                    String columnValue = resultSet.getString(i);
+                    //System.out.print(rsmd.getColumnName(i)+ ": " +columnValue);
+                    answer=answer+(rsmd.getColumnName(i)+ ": " +columnValue+"        ");
+                }
+                answer=answer+("\n\n");
+            }
+        } catch (Exception ex) {
+        }
+
+
